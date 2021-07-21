@@ -1,0 +1,24 @@
+﻿# ============================== Filebeat inputs ===============================
+filebeat.inputs:
+
+- type: log
+
+  enabled: true
+
+  paths:
+    - c:\Log\DHCPLog\*.log
+
+  multiline.pattern: ^#7 ----------
+
+  multiline.negate: true
+
+  multiline.match: before
+
+# ================================== General ===================================
+
+tags: ["DHCP"]
+
+# ------------------------------ Logstash Output -------------------------------
+output.logstash:
+
+  hosts: ["10.36.1.229:5044"]
